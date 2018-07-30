@@ -19,6 +19,13 @@ public abstract class SpringUtils {
     public static ConfigurableListableBeanFactory factory = null;
     public static Map<String, String> mapInst = new LinkedCaseInsensitiveMap<>();
 
+    /**
+     * 获取Bean
+     * 
+     * @param prop
+     *            名字
+     * @return 实例
+     */
     public static Object getBean(String prop) {
         if (mapInst.containsKey(prop)) {
             prop = mapInst.get(prop);
@@ -32,6 +39,13 @@ public abstract class SpringUtils {
         }
     }
 
+    /**
+     * 获取Bean
+     * 
+     * @param classz
+     *            实例
+     * @return 实例
+     */
     public static <T> T getBean(Class<T> classz) {
         T o = factory.getBean(classz);
         logger.debug("property=[{}],object=[{}]", classz, o);
@@ -39,7 +53,15 @@ public abstract class SpringUtils {
     }
 
     /**
-     * 转换beanName IDemoService >> demoService_type
+     * 转换beanName IDemoService to demoService_type
+     * 
+     * @param ifcName
+     *            接口名字
+     * @param defaultName
+     *            默认bean名
+     * @param type
+     *            类型
+     * @return bean名字
      */
     public static String changeBeanName(String ifcName, String defaultName, String type) {
         if (StringUtils.isNotBlank(type)) {
@@ -60,12 +82,25 @@ public abstract class SpringUtils {
     }
 
     /**
-     * 转换beanName IDemoService >> demoService_type
+     * 转换beanName IDemoService to demoService_type
+     * 
+     * @param ifcName
+     *            接口名字
+     * @param type
+     *            类型
+     * @return bean名字
      */
     public static String changeBeanName(String ifcName, String type) {
         return changeBeanName(ifcName, null, type);
     }
 
+    /**
+     * bean集合
+     * 
+     * @param classz
+     *            实例
+     * @return bean集合
+     */
     public static <T> Map<String, T> getAllBean(Class<T> classz) {
         Map<String, T> beansOfType = factory.getBeansOfType(classz);
         logger.debug("property=[{}],[{}]", classz, beansOfType);
