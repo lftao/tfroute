@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.lftao</groupId>
     <artifactId>tfroute</artifactId>
+    <name>tfroute</name>
     <version>0.0.1</version>
-
     <description>spring service route</description>
     <url>https://github.com/lftao/tfroute</url>
     <licenses>
