@@ -6,5 +6,5 @@ package com.javatao.route.support;
  * @author tao
  */
 public interface IRouteType {
-    String getType();
+    String _getType();
 }

@@ -61,7 +61,7 @@ public class RouteProxy implements InvocationHandler, Serializable, MethodInterc
         if (args != null) {
             for (Object arg : args) {
                 if (arg instanceof IRouteType) {
-                    String type = ((IRouteType) arg).getType();
+                    String type = ((IRouteType) arg)._getType();
                     if (type == null) {
                         throw new RouteException("RouteType is not set");
                     }
